@@ -1,0 +1,47 @@
+﻿@model IEnumerable<FlyBuy.Models.AgeCategorie>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<link rel="stylesheet" href="~/Content/TableStyle.css" />
+<link rel="stylesheet" href="~/Content/MainStyle.css" />
+
+<div class="body">
+
+    <h2>@Html.ActionLink("Create New", "Create", "Products", new { @class = "btn" })</h2>
+    <div class="table-wrapper">
+        <table class="fl-table">
+            <thead>
+                <tr>
+                    <th>
+                        @Html.DisplayNameFor(model => model.Image)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.Name)
+                    </th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Model)
+                {
+                <tr>
+                    <td>
+                        <img  src="@Url.Content(item.Image)" width="100px" height="100px"/>
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Name)
+                    </td>
+                    <td>
+                        @Html.ActionLink("Edit", "Edit", new { id = item.Id }) |
+                        @Html.ActionLink("Delete", "Delete", new { id = item.Id })
+                    </td>
+                </tr>
+                }
+            <tbody>
+        </table>
+    </div>
+</div>
+

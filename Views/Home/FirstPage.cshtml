@@ -1,0 +1,60 @@
+﻿
+@{
+    Layout = "~/Views/Shared/_FirstPage.cshtml";
+}
+
+    <!--Koka Faqes-->
+    <div class="header">
+
+        <div class="container">
+
+            <!--Shiriti Navigimit -->
+
+            <div class="navbar">
+
+                <h1 class="logo">FLY <span class="Element"></span></h1>
+
+                <nav>
+                    <ul id="MenuItems">
+                        @*<li><a href="#">Home</a></li>*@
+                        @*<li>@Html.ActionLink("Products", "Index", "Products")</li>*@
+                        <li>@Html.ActionLink("About Us", "AboutUs", "Home")</li>
+                        <li>@Html.ActionLink("Contact Us", "Create", "ContactUs")</li>
+                        <li class="login-btn">@Html.ActionLink("Log In", "Login", "Account")</li>
+                    </ul>
+                </nav>
+                <img src="~/Content/Images/PikPng.com_white-bars-png_4251166.png" class="menu-icon" id="O" onclick="MenuToggle()">
+                <img src="~/Content/Images/kindpng_2260721.png" class="menu-icon_2" id="X">
+            </div>
+
+            <!--Fund Shiriti Navigimit-->
+            <!--Permbajtja e Kokes -->
+
+            <div class="text">
+                <h1>Give your <span class="element"></span></h1>
+                <p>
+                    Lorem ipsum dolor sit amet consectetur, adipisicing elit. Ab delectus optio fugit non.
+                    Deleniti, cupiditate  hic! <br> Natus ipsam sit ab eos sint
+                    fuga qui, eum, recusandae, similique commodi blanditiis in.
+                </p>
+                <a href="/Account/Register" class="btn">Explore now &#8594;</a>
+            </div>
+
+
+            <!--Fund Permbajtja-->
+        </div>
+
+        <div id="slider">
+            <figure>
+                <img src="~/Content/Backgound/cute-young-girl-with-dark-wavy-hairstyle-bright-makeup-silk-dress-black-jacket-holding-sunglasses-hands-looking-away-against-beige-building-wall.jpg">
+                <img src="~/Content/Backgound/business-man-coat-talking-phone-outside.jpg">
+                <img src="~/Content/Backgound/trendy-woman-with-wavy-hairstyle-red-lips-posing-outside-brunette-woman-dark-jacket-glasses-looks-away-outdoors.jpg">
+                <img src="~/Content/Backgound/young-handsome-bearded-man.jpg">
+            </figure>
+
+        </div>
+
+        <video src="~/Content/Videos/production ID_4650064.mp4" muted loop autoplay class="video"></video>
+
+    </div>
+    <!--Fundi kokes se faqes-->

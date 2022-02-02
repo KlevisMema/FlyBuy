@@ -1,0 +1,52 @@
+﻿@model FlyBuy.Models.RegisterViewModel
+@{
+    ViewBag.Title = "Register";
+    Layout = "~/Views/Shared/_LoginRegister.cshtml";
+}
+
+@using (Html.BeginForm("Register", "Account", FormMethod.Post, new { role = "form" }))
+{
+    @Html.AntiForgeryToken()
+    @Html.ValidationSummary("", new { @class = "text-danger" })
+    <div class="account-page">
+        <div class="container">
+            <div class="row">
+                <div class="col-2">
+
+                    <div class="form-container form-login">
+
+                        <div class="form-btn">
+                            <span>Register</span>
+                        </div>
+
+                        <div class="form-control">
+
+                            <br />
+                            <br />
+                            @Html.LabelFor(m => m.Email)
+                            @Html.TextBoxFor(m => m.Email, new { @class = "form-edit", placeholder = "Enter your email" })
+
+                            <br />
+                            <br />
+
+                            @Html.LabelFor(m => m.Password)
+                            @Html.PasswordFor(m => m.Password, new { @class = "form-edit", placeholder = "Enter your password" })
+
+                            <br />
+                            <br />
+
+                            @Html.LabelFor(m => m.ConfirmPassword)
+                            @Html.PasswordFor(m => m.ConfirmPassword, new { @class = "form-edit", placeholder = "Confirm your password" })
+
+                            <br />
+                            <br />
+
+                            <button type="submit" class="btn">Register</button>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+}

@@ -1,0 +1,37 @@
+﻿@model FlyBuy.Models.Category
+
+@{
+    ViewBag.Title = "Create";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+
+
+    <div class="account-page">
+        <div class="container">
+            <div class="row">
+                <div class="col-2">
+
+                    <div class="form-container form-container-2">
+
+                        <div class="form-btn">
+                            <span>Add a Category</span>
+                        </div>
+
+                        <div class="form-control form-control-2">
+                            @Html.TextBoxFor(model => model.Name, new { @class = "form-edit", placeholder = "Product Category" })
+                            @Html.ValidationMessageFor(model => model.Name, "", new { @class = "text-danger" })
+                            <input type="submit" value="Create" class="btn btn-default" />
+                            @Html.ActionLink("Back to List", "Index", "Categories", new { @class = "btn btn-fix" })
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+}
+

@@ -1,0 +1,27 @@
+﻿
+@{
+    ViewBag.Title = "CheckOutCompleted";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="account-page">
+    <div class="container">
+        <div class="row">
+            <div class="col-2">
+
+                <div class="form-container form-container-2">
+
+                    <div class="form-btn">
+                        <span> Completed </span>
+                    </div>
+
+                    <div class="form-control form-control-2">
+                        <h3>Thank you for your order, we will contact you soonn :)</h3>
+                        @Html.ActionLink("Coninue Shopping?","AllProducts","Products", new {@class="" },null)
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

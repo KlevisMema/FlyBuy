@@ -1,0 +1,55 @@
+﻿@model FlyBuy.Models.ContactUs
+
+@{
+    ViewBag.Title = "Create";
+    Layout = "~/Views/Shared/_LoginRegister.cshtml";
+}
+
+<html>
+<head>
+    <title></title>
+    <link href="~/Content/naKontaktoni.css" rel="stylesheet" />
+    <link href="~/Content/MainStyle.css" rel="stylesheet" />
+</head>
+<body>
+    <div class="gather">
+        @using (Html.BeginForm())
+        {
+            @Html.AntiForgeryToken()
+
+            <div class="kontakti">
+                @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                <div class="kontakti_pjesa2">
+                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2996.563225261373!2d19.821690215345004!3d41.31836450823426!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x135031d53942bf4b%3A0xc29b959022f4c53!2sAir%20Albania%20Stadium!5e0!3m2!1sen!2s!4v1622419139206!5m2!1sen!2s" width="100%" height="auto" style="border:0;" allowfullscreen="" frameborder="0" aria-hidden="false" tabindex="0"></iframe>
+                </div>
+                <div class="contact-form forma_klasa">
+                    <h1> Contact Us </h1>
+                    <form name="forma_ime">
+
+                        @Html.ValidationMessageFor(model => model.Name, "", new { @class = "text-danger" })
+                        @Html.EditorFor(model => model.Name, new { htmlAttributes = new { @class = "forma", placeholder = "Name" } })
+
+
+
+                        @Html.ValidationMessageFor(model => model.Email, "", new { @class = "text-danger" })
+                        @Html.EditorFor(model => model.Email, new { htmlAttributes = new { @class = "forma", placeholder = "Email" } })
+
+
+                        @Html.ValidationMessageFor(model => model.Message, "", new { @class = "text-danger" })
+                        @Html.TextAreaFor(model => model.Message, new { @class = "form_teksti", placeholder = "Message" })
+
+
+                        <input type="submit" value="Send" class="forma_butoni" />
+                    </form>
+                </div>
+            </div>
+        }
+    </div>
+
+        @*<div>
+            @Html.ActionLink("Back to List", "Index")
+        </div>*@
+    
+</body>
+</html>
+

@@ -1,0 +1,53 @@
+﻿@using FlyBuy.Models
+@model LoginViewModel
+@{
+    ViewBag.Title = "Log in";
+    Layout = "~/Views/Shared/_LoginRegister.cshtml";
+}
+
+@using (Html.BeginForm("Login", "Account", new { ReturnUrl = ViewBag.ReturnUrl }, FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
+{
+    @Html.AntiForgeryToken()
+    @Html.ValidationSummary("", new { @class = "text-danger" })
+    <div class="account-page">
+        <div class="container">
+            <div class="row">
+                <div class="col-2">
+
+                    <div class="form-container form-container-3 form-login">
+
+                        <div class="form-btn">
+                            <span>@ViewBag.Title  to your account</span>
+                        </div>
+
+                        <div class="form-control  form-control-2">
+
+                            @Html.LabelFor(m => m.Email)
+                            @Html.TextBoxFor(m => m.Email, new { @class = "form-edit", placeholder = "Enter your username" })
+
+                            <br />
+                            <br />
+
+                            @Html.LabelFor(m => m.Password)
+                            @Html.PasswordFor(m => m.Password, new { @class = "form-edit", placeholder = "Enter your password" })
+
+                            <br />
+                            <br />
+                            @Html.LabelFor(m => m.RememberMe)
+                            @Html.CheckBoxFor(m => m.RememberMe)
+                            <button type="submit" class="btn">Login</button>
+                            <br />
+                            <br />
+                            @Html.ActionLink("Register as a new user", "Register")
+
+                            <br />
+                            <br />
+                            @*@Html.Partial("_ExternalLoginsListPartial", new ExternalLoginListViewModel { ReturnUrl = ViewBag.ReturnUrl })*@
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+}

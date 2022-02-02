@@ -1,0 +1,126 @@
+﻿@model IEnumerable<FlyBuy.Models.Rating>
+
+@{
+    ViewBag.Title = "NewHomePage";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<style>
+    .row a{
+        text-decoration:none;
+    }
+</style>
+
+
+<!--produkte products-->
+<div class="backgound categories" id="background">
+    <div class="small-container">
+        <h2 class="title">Categories</h2>
+        <div class="categories">
+            <div class="row">
+                @foreach (var item in ViewData["AgeCategories"] as List<FlyBuy.Models.AgeCategorie>)
+                 {
+                    <div class="col-3">
+                        <img src="@Url.Content(item.Image)">
+                        <h3>@item.Name</h3>
+                        @Html.ActionLink("Shop in this category", item.Name, "Products")
+                    </div>
+                 }
+            </div>
+        </div>
+       
+        <h2 class="title">Latest Products</h2>
+
+        <div class="row">
+
+       @foreach (var item in ViewData["Products"] as List<FlyBuy.Models.Product>)
+        {
+
+            <div class="col-4">
+                <img src="@Url.Content(item.Image)">
+                <h4>@item.Name</h4>
+                <div class="rating">
+                    @for (var i = 0; i < item.Rating; i++)
+                    {
+                        <i class="fa fa-star"></i>
+                    }
+                </div>
+                <p>@item.Price $</p>
+                <br />
+                @Html.ActionLink("Order Now", "OrderNow", "ShoppingCart", new { @class = "btn-sort", id = item.Id }, null)
+            </div>
+        }
+        </div>
+    </div>
+</div>
+<!--produkte-->
+
+<!--oferte-->
+<div class="backgound" id="background">
+    <div class="offer" id="offer">
+        <div class="small-container">
+            <h2 class="title" id="OfferTittle">Exclusive</h2>
+            @{
+                var offer = ViewData["Offer"] as FlyBuy.Models.Product;
+            }
+        <div class="row">
+
+            <div class="col-2" id="col-2-position">
+                <img src="@Url.Content(offer.Image)" class="offer-img">
+            </div>
+
+            <div class="col-2" id="col-2-position-2">
+                <p>Exclusively Available on FlyBuyStore</p>
+                <h1>@offer.Name</h1>
+                <small>
+                    The Mi Smart Band 4 features a 39.9% larger
+                    (than Mi Band 3) AMOLED color full-touch display with
+                    adjustable brightness, so everything is clear as can
+                    be•
+                </small>
+                <br>
+                <br>
+                <br>
+                <a href="#" class="btn">Buy Now &#8594;</a>
+                <br />
+                <br />
+                <br />
+                @Html.ActionLink("Order Now", "OrderNow", "ShoppingCart", new { @class = "btn-sort", id = offer.Id }, null)
+            </div>
+            
+        </div>
+
+        </div>
+    </div>
+</div>
+<!--fund oferte-->
+
+
+<!--vlersimet-->
+<div class="backgound" id="background">
+    <div class="testimonial">
+        <div class="small-container">
+            <h2 class="title">Ratings</h2>
+            <div class="row">
+
+               @foreach(var item in ViewData["Rating"] as List<FlyBuy.Models.Rating>) {
+                      
+                <div class="col-3">
+                    <i class="fa fa-quote-left"></i>
+                    <p>@Html.DisplayFor(modelItem => item.Description)</p>
+                
+                    <div class="rating">
+                        @for(var i = 0 ; i < item.Rate; i++){
+                            <i class="fa fa-star"></i>
+                         }  
+                    </div>
+                    <h3>@item.Name</h3>
+                </div>
+                }
+
+             
+            </div>
+        </div>
+    </div>
+</div>
+<!--fund vlersimet-->

@@ -1,0 +1,98 @@
+body{
+	background-color: var(--color-swapv2);
+}
+
+
+.kontakti {
+	width: 80%;
+	height: auto;
+	margin: 50px auto;
+	display: flex;
+	padding: 10px;
+	border-radius: 10px;
+	background: #fff;
+	box-shadow: 0px 0px 10px 0px #666;
+	background-color: var(--color-swapv2);
+}
+.kontakti_pjesa2
+{
+	width: 100%;
+	height: auto;
+	flex: 50%; 
+}
+.kontakti_pjesa2 iframe
+{
+	width: 100%;
+	height: 100%;
+}
+.forma_klasa
+{
+	width: 100%;
+	height: auto;
+	flex: 50%;
+	padding: 30px;
+	text-align: center;
+}
+.forma_klasa h1
+{
+	margin-bottom: 10px;
+	color:var(--footer-h3);
+}
+.forma {
+	width: 100%;
+	height: 40px;
+	color: #000;
+	border: 1px solid #bcbcbc;
+	outline: none;
+	border-radius: 50px;
+	margin-bottom: 20px;
+	padding: 15px;
+	border: 1.5px solid #ff6a00;
+	background-color: var(--color-swapv2);
+	color: var(--footer-h3);
+}
+.forma::placeholder
+{
+	color: #aaa;
+}
+.form_teksti {
+	width: 100%;
+	height: 130px;
+	color: #000;
+	border: 1px solid #bcbcbc;
+	border-radius: 10px;
+	outline: none;
+	margin-bottom: 20px;
+	padding: 15px;
+	font-family: 'Poppins', sans-serif;
+	border: 1.5px solid #ff6a00;
+	background-color: var(--color-swapv2);
+	color: var(--footer-h3);
+}
+.form_teksti::placeholder
+{
+	color: #aaa;
+}
+.forma_butoni
+{
+	width: 100%;
+	border:none;
+	outline: none;
+	border-radius: 50px;
+	color: #fff;
+	text-transform: uppercase;
+	padding: 10px ;
+	font-size: 18px;
+	background: #ff6a00;
+	cursor:pointer;
+	transition:0.5s;
+}
+
+.forma_butoni:hover {
+	background: #ff0000;
+	transform:scale(0.8);
+}
+
+.text-danger{
+	color: #ff0000;
+}

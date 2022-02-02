@@ -1,0 +1,91 @@
+﻿
+@{
+    ViewBag.Title = "_LoginRegister";
+    Layout = null;
+}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="~/Content/MainStyle.css">
+    @*<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.15.4/css/fontawesome.min.css">*@
+    <title>Fly Buy</title>
+</head>
+<body>
+    <div class="backgroundHeader">
+
+        <div class="GeneralHeader">
+
+            <div class="navbar navbarV2">
+
+                <h1 id="z-index" class="logo color-logo">FLY<span>  BUY</span></h1>
+
+                <nav>
+                    <ul id="MenuItems2">
+
+                        <li>@Html.ActionLink("Home", "FirstPage", "Home")</li>
+
+                        <li>@Html.ActionLink("About Us", "AboutUs", "Home")</li>
+                        <li>@Html.ActionLink("Contact Us", "Create", "ContactUs")</li>
+
+
+                        <li class="small-screen-hide"><i id="night" class="far fa-moon nightV2" title="Night"></i></li>
+                        <li class="small-screen-hide"><i id="day" class="fas fa-sun dayV2" title="Day"></i></li>
+
+                    </ul>
+                </nav>
+                <img src="~/Content/Images/PikPng.com_white-bars-png_4251166.png" class="menu-icon" id="O" onclick="MenuToggle()">
+                <img src="~/Content/Images/kindpng_2260721.png" class="menu-icon_2" id="X">
+            </div>
+            <!--Fund Shiriti Navigimit-->
+        </div>
+    </div>
+
+    @RenderBody();
+
+    <div class="footer">
+        <div class="container">
+            <hr id="line">
+            <div class="row">
+                <div class="footer-col-1">
+                    <h3>Download Our App</h3>
+                    <p>Download App for Android and ios mobile phone. </p>
+                    <div class="app-logo">
+                        <img src="~/Content/Images/play-store.png">
+                        <img src="~/Content/Images/app-store.png">
+                    </div>
+                </div>
+                <div class="footer-col-2">
+                    <h1 class="logo">FLY <span class="Element">BUY</span></h1>
+                    <p>Our Purpose Is To Sustainably Make Pleasure and Benefits of Sports Accessible to the Many.</p>
+                </div>
+                <div class="footer-col-3">
+                    <h3>Follow Us</h3>
+                    <ul>
+                        <li><a href="#">Facebook</a></li>
+                        <li><a href="#">Twitter</a></li>
+                        <li><a href="#">Instagram</a></li>
+                        <li><a href="#">YouTube</a></li>
+                    </ul>
+                </div>
+            </div>
+            <hr id="lineV2">
+            <p class="copyright">Copyright 2022</p>
+        </div>
+    </div>
+
+
+
+   
+    <script src="/Scripts/Style.js"></script>
+    <script  src="~/Scripts/ProductPageStyle.js"></script>
+
+
+</body>
+</html>

@@ -1,0 +1,48 @@
+﻿@using FlyBuy.Models
+@{
+    ViewBag.Title = "LastProcessCheckOut";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+@using (Html.BeginForm("LastProcessCheckOut", "ShoppingCart", FormMethod.Post, new { id = "customer-form" }))
+{
+    @Html.AntiForgeryToken()
+
+    <div class="account-page account-page-2">
+        <div class="container">
+            <div class="row">
+                <div class="col-2">
+
+                    <div class="form-container">
+
+                        <div class="form-btn">
+                            <span>Last Process</span>
+                        </div>
+
+                        <div class="form-control">
+                           
+                            <input type="text" name="Name" placeholder="Name" class="form-edit" required />
+                           
+                            <input type="email" name="Email" placeholder="Email" class="form-edit" required />
+                        
+                        
+                            <input type="text" name="Phone" placeholder="Phone Number" class="form-edit" required />
+                       
+                         
+                            <input type="text" name="Adress" placeholder="Adress" class="form-edit" required />
+                         
+
+                            <input type="submit" value="Check Out" class="btn btn-default" />
+                            <br />
+                            <br />
+                            @Html.ActionLink("Go  Back", "Index", "ShoppingCart", new { @class = "btn" }, null)
+
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+}

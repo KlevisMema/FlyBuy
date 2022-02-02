@@ -1,0 +1,47 @@
+﻿@model FlyBuy.Models.Rating
+
+@{
+    ViewBag.Title = "Create";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+
+    <div class="account-page account-page-2">
+        <div class="container">
+            <div class="row">
+                <div class="col-2">
+
+                    <div class="form-container form-review">
+
+                        <div class="form-btn">
+                            <span>Give a review to FlyBuy </span>
+                        </div>
+
+                        <div class="form-control">
+                            @Html.TextAreaFor(model => model.Description, new { @class = "form_teksti", placeholder = "Your opinion about FlyBuy" })
+                            @Html.ValidationMessageFor(model => model.Description, "", new { @class = "text-danger" })
+                            <br />
+                            <br />
+                            @Html.EditorFor(model => model.Rate, new { htmlAttributes = new { @class = "form-edit", placeholder = "Rate" } })
+                            @Html.ValidationMessageFor(model => model.Rate, "", new { @class = "text-danger" })
+                            <br />
+                            <br />
+                            @Html.EditorFor(model => model.Name, new { htmlAttributes = new { @class = "form-edit", placeholder = "Name" } })
+                            @Html.ValidationMessageFor(model => model.Name, "", new { @class = "text-danger" })
+
+                            <input type="submit" class="btn" value="Send" />
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+}

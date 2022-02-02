@@ -1,0 +1,41 @@
+﻿@model FlyBuy.Models.AgeCategorie
+
+@{
+    ViewBag.Title = "Edit";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@using (Html.BeginForm("Create", "AgeCategories", FormMethod.Post, new { enctype = "multipart/form-data" }))
+{
+    @Html.AntiForgeryToken()
+    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+
+    <div class="account-page">
+        <div class="container">
+            <div class="row">
+                <div class="col-2">
+
+                    <div class="form-container form-container-2">
+
+                        <div class="form-btn">
+                            <span>Edit This Age Category</span>
+                        </div>
+
+                        <div class="form-control form-control-2">
+
+                            <input type="file" name="File" class="form-edit" required />
+
+
+                            @Html.TextBoxFor(model => model.Name, new { @class = "form-edit", placeholder = "Age Category" })
+                            @Html.ValidationMessageFor(model => model.Name, "", new { @class = "text-danger" })
+
+                            <input type="submit" value="Create" class="btn btn-default" />
+                            @Html.ActionLink("Back to List", "Index", "AgeCategories", new { @class = "btn btn-fix" })
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+}

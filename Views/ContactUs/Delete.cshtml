@@ -1,0 +1,29 @@
+﻿@model FlyBuy.Models.ContactUs
+
+@{
+    ViewBag.Title = "Delete";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+    <div class="account-page">
+        <div class="container">
+            <div class="row">
+                <div class="col-2">
+
+                    <div class="form-container form-container-2">
+
+                        <div class="form-control form-control-2">
+                            <h3>Are you sure you want to delete this message by @Model.Name ?</h3>
+                            <input type="submit" value="Delete" class="btn btn-default" />
+                            @Html.ActionLink("Back to List", "Index","ContactUs", new { @class = "btn btn-fix" })
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+}

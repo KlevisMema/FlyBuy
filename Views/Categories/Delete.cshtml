@@ -1,0 +1,33 @@
+﻿@model FlyBuy.Models.Category
+
+@{
+    ViewBag.Title = "Delete";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+    <div class="account-page">
+        <div class="container">
+            <div class="row">
+                <div class="col-2">
+
+                    <div class="form-container form-container-2">
+
+                        <div class="form-btn">
+                            <span>Delete @Model.Name  </span>
+                        </div>
+
+                        <div class="form-control form-control-2">
+                            <h3>Are you sure you want to delete this @Html.DisplayNameFor(model => model.Name)?</h3>
+                            <input type="submit" value="Delete" class="btn btn-default" />
+                            @Html.ActionLink("Back to List", "Index", "Categories", new { @class = "btn btn-fix" })
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+}

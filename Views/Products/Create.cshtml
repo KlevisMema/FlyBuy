@@ -1,0 +1,57 @@
+﻿@model FlyBuy.Models.Product
+
+@{
+    ViewBag.Title = "Create";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@using (Html.BeginForm("Create", "Products", FormMethod.Post, new { enctype = "multipart/form-data" }))
+{
+    @Html.AntiForgeryToken()
+
+
+    <div class="account-page account-page-2">
+        <div class="container">
+            <div class="row">
+                <div class="col-2">
+
+                    <div class="form-container">
+
+                        <div class="form-btn">
+                            <span>Add a Product</span>
+                        </div>
+
+                        <div class="form-control">
+                            @Html.TextBoxFor(model => model.Name, new { @class = "form-edit", placeholder = "Product Name" })
+                            @Html.ValidationMessageFor(model => model.Name, "", new { @class = "text-danger" })
+
+                            @Html.TextBoxFor(model => model.Price, new { @class = "form-edit", placeholder = "Price" })
+                            @Html.ValidationMessageFor(model => model.Price, "", new { @class = "text-danger" })
+
+                            @Html.TextBoxFor(model => model.Description, new { @class = "form-edit", placeholder = "Product Desciption" })
+                            @Html.ValidationMessageFor(model => model.Description, "", new { @class = "text-danger" })
+
+                            @*@Html.TextBoxFor(model => model.LastUpdated, new { @class = "form-edit", placeholder = "Last Updated" })
+        @Html.ValidationMessageFor(model => model.LastUpdated, "", new { @class = "text-danger" })*@
+
+                            <input type="file" name="ImageFile" class="form-edit" />
+
+                            @Html.TextBoxFor(model => model.Rating, new { @class = "form-edit", placeholder = "Ratings" })
+                            @Html.ValidationMessageFor(model => model.Rating, "", new { @class = "text-danger" })
+
+                            @Html.TextBoxFor(model => model.AgeCategory, new { @class = "form-edit", placeholder = "Age Category" })
+                            @Html.ValidationMessageFor(model => model.AgeCategory, "", new { @class = "text-danger" })
+
+                            @Html.DropDownList("CategoryId", null, htmlAttributes: new { @class = "drop-down-list" })
+                            @Html.ValidationMessageFor(model => model.CategoryId, "", new { @class = "text-danger" })
+
+                            <input type="submit" class="btn" value="Add" />
+                            @Html.ActionLink("Back to List", "Index", "Products", htmlAttributes: new { @class = "btn btn-fix" })
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+}

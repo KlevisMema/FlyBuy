@@ -1,0 +1,81 @@
+﻿@using FlyBuy.Models;
+@{
+    ViewBag.Title = "Cart";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+    @if ((List<Cart>)Session["cart"] == null)
+            {
+                <div class="account-page">
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-2">
+
+                                <div class="form-container form-container-2">
+
+                                    <div class="form-btn">
+                                        <span>No Products Found </span>
+                                    </div>
+
+                                    <div class="form-control form-control-2">
+                                        @Html.ActionLink("Go Back", "NewHomePage", "Home", new { @class = "" }, null)
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            }
+            else
+            {
+
+                <div class="small-container cart-page">
+                    <table>
+                        <tr>
+                            <th>Product</th>
+                            <th>Quantity</th>
+                            <th>Subtotal</th>
+                        </tr>
+                        @{
+                            decimal sum = 0;
+                        }
+                        @foreach (Cart item in (List<Cart>)Session["cart"])
+                        {
+
+                            sum += item.Product.Price * item.Quantity;
+                            <tr>
+                                <td>
+                                    <div class="cart-info">
+                                        <img src="@Url.Content(item.Product.Image)">
+                                        <div>
+                                            <p>@item.Product.Name</p>
+                                            <small>Price : $@item.Product.Price</small>
+                                            <br>
+                                            @Html.ActionLink("Remove", "Delete", "ShoppingCart", new { id = item.Product.Id }, null)
+                                        </div>
+                                    </div>
+                                </td>
+                                <td>@item.Quantity</td>
+                                <td>$@(item.Product.Price * item.Quantity )</td>
+                            </tr>
+                        }
+
+
+                    </table>
+
+                    <div class="total-price">
+                        <table>
+                            <tr>
+                                <td>$@sum</td>
+
+                            </tr>
+                            <tr>
+                                <td>@Html.ActionLink("Check Out", "LastProcessCheckOut", "ShoppingCart", new { @class = "" },null)</td>
+                            </tr>
+                        </table>
+                    </div>
+
+                </div>
+
+            }
